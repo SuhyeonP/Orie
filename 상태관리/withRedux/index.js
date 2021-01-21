@@ -40,6 +40,10 @@ const changeCompA = (data) => {
     };
 };
 
-store.dispatch(changeCompA('b'));
 
+console.log('origin',store.getState());
+store.dispatch(changeCompA('b'));
 console.log('2nd', store.getState());
+
+
+//터미널에 node index.js하면 알수잇음
