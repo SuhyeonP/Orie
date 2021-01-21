@@ -30,7 +30,6 @@ const initialState = {
 };
 
 const store=createStore(reducer,initialState)
-console.log(store)
 store.subscribe(()=>{
     console.log('changed')
 })
