@@ -16,12 +16,21 @@ const BasicOfRecoil = () => {
                     Atom은 컴포넌트들이 구독(subscribe)할 수 있는 단위이고, Selector는 동기적 혹은 비동기적으로 상태를 변환한다.\n
                     이 두가지의 핵심개념으로 이루어진 라이브러리이다.
                 </p>
-                <h3>Atom</h3>
-                <p>Atom은 상태의 단위이다. Atom이 업데이트 되면 해당 Atom을 구독하고 있던 모든 컴포넌트들이 새로운 값으로 리렌더 된다. 또 여러 컴포넌트에서 같은 Atom을 구독하고있으면
-                    그 컴포넌트들이 상태를 동일하게 공유한다.</p>
-
-                <h3>Selector</h3>
-                <p>Selector는 다른 Atom들 혹은 Selector들을 받아 사용하는 순수함수이다.</p>
+                <div>
+                    <h3>Atom</h3>
+                    <p>Atom은 상태의 단위이다. Atom이 업데이트 되면 해당 Atom을 구독하고 있던 모든 컴포넌트들이 새로운 값으로 리렌더 된다. 또 여러 컴포넌트에서 같은 Atom을 구독하고있으면
+                        그 컴포넌트들이 상태를 동일하게 공유한다.</p>
+                </div>
+                <div>
+                    <h3>Selector</h3>
+                    <p>Selector는 다른 Atom들 혹은 Selector들을 받아 사용하는 순수함수이다.\n
+                        받은 Atom들 혹은 Selector들 중 어떤것이 업데이트되면, Selector함수는 다시 (re-evalutate)됩니다.Atom처럼 컴포넌트에서 구독할 수 있으며, Selector 함수가 다시 평가될때 컴포넌트가 리렌더 된다.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p>Recoil만의 장점</p>
+                <p>Recoil은 사용법이 간단하다. 단지 Atom과 Selector를 생성하고, 컴포넌트에서 사용하는것 이외에는 할 일이 없다. \n                </p>
             </div>
         </>
     )
