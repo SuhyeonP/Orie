@@ -19,7 +19,7 @@ function getUser(id){
     }
 }
 ```
-위와같이 아이디를 넘기면 가짜유저 객체를 리턴하는 함수를 테스트하려고 한다.
+위와같이 아이디를 넘기면 가짜유저 _객체_ 를 리턴하는 함수를 테스트하려고 한다.
 ```javascript
 test("return a user object", () => {
   expect(getUser(1)).toBe({
