@@ -75,3 +75,24 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
 ```
 이와같이 Promsie는 `then()`과 `catch()`메서드를 통해 접근할수있도록 해준다. 다시 말해 `then()`과 `catch()`메서드는 마치 사슬처럼 계속연결하여 연쇄적으로 호출할수있다.
 예를 들어, 이전 섹션의 fetch() 메서드 사용 예제에서 단순히 응답 결과가 아닌 응답 전문을 json 형태로 출력하고 싶은 경우에는 then() 메서드를 추가로 연결해주면 됩니다.
+
+<br/>
+
+#####Promise <br/>
+```javascript
+function fetchAuthorName(postId) {
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    .then((response) => response.json())
+    .then((post) => post.userId)
+    .then((userId) => {
+      return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+        .then((response) => response.json())
+        .then((user) => user.name)
+    })
+}
+
+fetchAuthorName(1).then((name) => console.log("name:", name))
+```
+브라우저 내장 함수인 fetch()를 호출하여 Promise 객체를 리턴받은 후에, Method Chaning 기법을 통해 then() 메서드를 연쇄적으로 호출하고 있다.<br/>
+마치 리눅스의 파이프(`|`) 키워드처럼 then() 메서드는 바로 이전 then() 메서드의 출력값을 입력값으로 사용하여 새로운 출력값을 만들고, 바로 다음 then() 메서드의 입력값으로 넘겨준다.<br/>
+
