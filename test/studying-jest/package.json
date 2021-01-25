@@ -1,11 +1,14 @@
 {
   "name": "studying-jest",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
   }
 }
