@@ -1,4 +1,4 @@
-#`jest.fn()` , `jest.spyOn()`함수 모킹
+#`jest.fn()` , `jest.spyOn()`함수 mocking
 <br/>
 자바스크립트 테스팅 프레임 워크로 Jest 를 사용시 장점중 하나는 다른 라이브러리 설치 없이 바로 mock 기능을 지한다는 점이다. <br/>
 
