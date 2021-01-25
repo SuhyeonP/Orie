@@ -42,7 +42,36 @@ function returnPromise(){
 생성자의 인자로 너어가는 함수인자의 바디에서는 `resolve()`나 `reject()`함수를 정상처리, 예외발생여부에 따라 적절히 호출해줘야한다. <br/>
 일반적으로 
 * `resolve()`함수의 인자로는 미래 시점에 얻게될 __결과__ 를 넘겨주고, <br/>
-* `resject()` 함수의 인자로는 미래 시점에 발생할 __예외__ 를 넘겨준다.
+* `reject()` 함수의 인자로는 미래 시점에 발생할 __예외__ 를 넘겨준다.
 
 <br/>
 예를들어 나눗셈함수를 Promise를 리턴하도록 구현해보면( 나눈셈을 비동기 처리할 이유는 없지만..이해를 위해...)<br/>
+
+```javascript
+function devide(num1,num2){
+    return new Promise(((resolve, reject)=> {
+        if(num2===0)reject(new Error('Unable to devide by 0.'))
+        else resolve(num1/num2)
+    }))
+}
+devide(8,2)
+    .then((result)=>console.log(result))
+    .catch((error)=>console.error(error))
+```
+출력결과를 통해 정상적인 인자를 넘긴 경우 `then()`메서드가 호출되고 , 비정상적인 인자를 넘긴 경우 `catch()`메서드가 호출되어있다는 것을 알수있다.
+<br/>
+
+###Promise 사용방법<br/>
+실제코딩시 위와같이 Promise를 직접 생성해서 리턴해주는 코드 보다는 어떤 라이브러리의 함수를 호출해서 리턴받은 Promise객체를 사용하는경우가 더 많다.
+<br/>Rest API를 호출시 사용되는 브라우저 내장 함수인 `fetch()`가 대표적이다.<br/>
+Node.js런타임에서는 node-fetch모듈을 설치해야 사용가능하다. 쨋든! `fetch()`함수는 API의 URL을 인자로 받고, 미래 시점에 얻게될 API호출 결과를 Promsie객체로 리턴한다. network latency때문에 바로 결과값을 얻을수없는 상황이므로 위에서 설명한 Promise를 사용목적에 정확히 부합하다.
+<br/>
+Promise객체의 `then()`메서드는 __결과값을 가지고 수행할 로직을 담은 콜백함수를 인자로__ 받는다. 그리고 `catch()`메서드는 __예외처리 로직을 담은 콜백함수를 인자로__ 받는다.
+<br/>ex)
+```javascript
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then((response) => console.log("response:", response))
+  .catch((error) => console.log("error:", error))
+```
+이와같이 Promsie는 `then()`과 `catch()`메서드를 통해 접근할수있도록 해준다. 다시 말해 `then()`과 `catch()`메서드는 마치 사슬처럼 계속연결하여 연쇄적으로 호출할수있다.
+예를 들어, 이전 섹션의 fetch() 메서드 사용 예제에서 단순히 응답 결과가 아닌 응답 전문을 json 형태로 출력하고 싶은 경우에는 then() 메서드를 추가로 연결해주면 됩니다.
