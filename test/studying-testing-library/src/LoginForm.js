@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const LoginForm=({submitLogin=()=>{}})=>{
+const LoginForm=({submitLogin})=>{
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
 
