@@ -15,3 +15,4 @@ Reactions은 Computed Value 와 비슷하다. Computed Value의 경우는 우리
 4. Actions (액션)<br/>
 액션은 상태에 변화를 일으키는것을 말한다. 만약에 [Observable State 에 변화를 일으키는 코드를 호출한다.] 이것은 하나의 액션이다. 
 
+https://ui.toast.com/weekly-pick/ko_20200616/
