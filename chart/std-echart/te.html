@@ -8,6 +8,8 @@
 <body>
 <!-- 높이와 너비가 지정된 Dom 을 생성합니다 -->
 <div id="main" style="width: 600px;height:400px;"></div>
+<div id="main2" style="width: 600px;height:400px;"></div>
+<div id="main3" style="width: 600px;height:400px;"></div>
 <script type="text/javascript">
     // DOM을 준비하고 echart 객체를 만듭니다.
     var myChart = echarts.init(document.getElementById('main'));
@@ -15,7 +17,7 @@
     // 차트 속성과 데이터를 지정합니다.
     var option = {
         title: {
-            text: 'ECharts entry example'
+            text: "Chart's title"
         },
         tooltip: {},
         legend: {
@@ -26,14 +28,71 @@
         },
         yAxis: {},
         series: [{
-            name: 'test',
+            name: 'test',//data종류 뭐잇는지 색상 보여주는 역할인거같
             type: 'bar',
-            data: [20, 10]//데이터 수치
+            data: [{value:20,itemStyle:{color:'grey'}}, {value:10,itemStyle: {color:'orange'}}], //데이터 수치,
+            itemStyle: {
+                color: 'pink'
+            }
         }]
     };
 
     // 위에서 설정한 속성을 차트에 반영합니다.
     myChart.setOption(option);
+
+    var myChart2 = echarts.init(document.getElementById('main2'));
+
+    // 차트 속성과 데이터를 지정합니다.
+    var option2 = {
+        xAxis: {
+            type: 'category',
+            data: ['A', 'B']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        tooltip: {},
+        series: [{
+            data: [120, 200],
+            type: 'bar',
+            //아래의 itemStyle.color를 통해 차트의 색상을 변경할 수 있습니다.
+            itemStyle: {
+                color: '#626A8E',
+            },
+        }]
+    };
+
+    // 위에서 설정한 속성을 차트에 반영합니다.
+    myChart2.setOption(option2);
+
+    var myChart3 = echarts.init(document.getElementById('main3'));
+
+    option3 = {
+        xAxis: {
+            type: 'category',
+            data: ['A', 'B']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        tooltip: {},
+        series: [{
+            data: [
+                {
+                    value: 120,
+                    itemStyle: {color: 'blue'},
+                },
+                {
+                    value: 200,
+                    itemStyle: {color: 'red'},
+                }],
+            //위의 data를 2개로 분리하여 색상을 다르게 설정할 수 있습니다.
+            type: 'bar',
+        }]
+    };
+
+    myChart3.setOption(option3);
+
 </script>
 </body>
 </html>
