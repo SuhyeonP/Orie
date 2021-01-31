@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>d3- x,y축 만들기</title>
+</head>
+<body>
+<div>
+    <a href="https://mynameisdabin.tistory.com/15">참고 사이트</a>
+</div>
+<svg width="400px" height="400px">
+</svg>
+<script>
+    const data = [
+        { value : 3, time : new Date("2019-03-22T03:00:00") },
+        { value : 1, time : new Date("2019-03-22T03:05:00") },
+        { value : 9, time : new Date("2019-03-22T03:10:00") },
+        { value : 6, time : new Date("2019-03-22T03:15:00") },
+        { value : 2, time : new Date("2019-03-22T03:20:00") },
+        { value : 6, time : new Date("2019-03-22T03:25:00") }
+    ];
+
+    const xScale = d3.scaleTime()
+        .domain([new Date("2019-03-22T03:00:00"), new Date("2019-03-22T03:25:00")])
+        .range([20, 330]);
+
+    const yScale = d3.scaleLinear()
+        .domain([1, 9])
+        .range([330, 20]);
+    const yAxisSVG = d3.select("svg").append("g");
+    //const xAxisSVG = d3.select("svg").append("g");
+    //기본적으로 SVG 내부에서 좌표계는 y값이 높을수록 아래로 향하기 때문이다.
+    //x 축 g 태그를 생성하는 부분에 attr 함수로 transform 속성을 변경할 수 있다. translate를 이용해 y값을 수정한다.
+    const xAxisSVG = d3.select("svg").append("g").attr("transform", "translate(0, 330)")
+    const xAxis = d3.axisBottom(xScale).tickSize(10).ticks(10);
+    const yAxis = d3.axisRight(yScale).tickSize(10).ticks(10);
+    xAxis(xAxisSVG);  //x축을 만드는 함수로 SVG > G 태그에 축을 생성한다.
+    yAxis(yAxisSVG);  //y축을 만드는 함수로 SVG > G 태그에 축을 생성한다.
+</script>
+</body>
+<script>
+    const scaleFunc1 = d3.scaleLinear().domain([1, 5]).range([1, 10]);
+    console.log(scaleFunc1(3));  //5.5 출력
+    console.log(scaleFunc1(5));  //10 출력
+</script>
+</html>

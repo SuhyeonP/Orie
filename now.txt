@@ -1,3 +1,5 @@
 https://github.com/chromaui/learnstorybook-code/blob/master/package.json
 
 https://www.learnstorybook.com/intro-to-storybook/react/ko/data/
+
+https://dullyshin.github.io/2019/07/26/Echarts-MinMax/
