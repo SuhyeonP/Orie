@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            font-size: 22px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: skyblue;
+        }
+
+        div {
+            margin: 100px;
+            background-color: white;
+        }
+
+        li {
+            padding: 10px 0;
+            line-height: 19px;
+        }
+    </style>
+</head>
+<body>
+<a href="https://darrengwon.tistory.com/1142?category=942666"> 참고사이트 </a>
+<div>
+    <p>
+        circle:아래 외에 storke 등의 스타일링을 추가해줄 수 있습니다.
+
+        그래프에서 scatter chart 그릴 때 종종 사용합니다.
+
+    </p>
+    <svg>
+        <circle r="22" cx="100" cy="100"></circle>
+        <!--    <circle r={반지름의 길이} cx=={x 좌표} cy={y 좌표}></circle>-->
+    </svg>
+</div>
+<br/>
+<div>
+    <p>
+
+        "rect"태그는
+        <br/>
+        막대 그래프 그릴 때 사용합니다.
+
+        x, y는 절대적인 위치를 의미하고, width, height는 속성명 그대로입니다.
+        <br/>
+        rx : The horizontal corner <span style="color:red">radius</span> of the rect. Defaults to ry if it is specified.
+        <br/>
+        ry : The vertical corner radius of the rect. Defaults to rx if it is specified.
+    </p>
+    <br/>
+    <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simple rectangle -->
+        <rect width="100" height="100" fill="pink"/>
+
+        <!-- Rounded corner rectangle -->
+        <rect x="120" width="100" height="100" rx="15"/>
+    </svg>
+</div>
+<div>
+    <p>
+        가장 중요한 <span style="color:red; font-size: 19px;">path</span>
+        <br/>
+        path를 잘 쓰는 방법은 d 속성을 얼마나 잘 이해하느냐에 달려있다.
+        <br/>
+        🚨 주의) document에서 x,y 기준점은 현실세계의 그래프와 달리, 브라우저 좌측 상단 모서리지점입니다. y값은 좌측모서리로부터의 거리이므로, y값을 수치 그대로 넣게되면 우리 현실세계에서의
+        그래프와는 상하가 반대인 그래프 모양이 그려지게 되죠. 네 그래서 캔버스 높이에서 데이터값을 빼서 y값을 만듭니다.
+        <br/>
+        필자 추가) D3에서는 Scale을 통해 이 값을 변환해주는 방식이 더 많이 사용됩니다.
+    </p>
+    <ul>
+        <li>MoveTo: M, m</li>
+        <li>LineTo: L, l, H, h, V, v</li>
+        <li>Cubic Bézier Curve: C, c, S, s</li>
+        <li>Quadratic Bézier Curve: Q, q, T, t</li>
+        <li>Elliptical Arc Curve: A, a</li>
+        <li>ClosePath: Z, z</li>
+    </ul>
+    <ul>
+        <li>Move
+            <br/>
+            M : Move the current point to the coordinate x,y.
+            <br/>
+            즉, 절대적인 x, y 좌표로 이동시킨다.
+            <br/>
+            m : Move the current point by shifting the last known position of the path by dx<br/> along the x-axis and
+            by dy along the y-axis.
+            <br/>
+            즉, Pn = {xo + dx, yo + dy} 즉, 현재 경로에서 x, y 좌표만큼 이동시킨다.
+        </li>
+        <li>
+            <h4>Line : line, horizontal, vertical</h4>
+            <br/> L : Draw a line from the current point to the end point specified by x,y.
+            <br/> l : Draw a line from the current point to the end point
+            <br/> H : Draw a horizontal line from the current point to the end point
+            <br/> h : Draw a horizontal line from the current point to the end point
+            <br/> V : Draw a vertical line from the current point to the end point
+            <br/> v : Draw a vertical line from the current point to the end point
+            <br/>
+            좀 예시를 들어서 구체적으로 확인해봅시다.
+            <br/>
+            <XMP>
+                <path d="M 10,10 l 80,80 v -80 h -40" stroke="blue" fill="none"></path>
+            </XMP>
+            10, 10 까지 이동(시작)
+            <br/>
+            현재 좌표에서 80, 80만큼 이동 (웹 상에서는 반전되어 보인다)
+            <br/>
+            현재 좌표에서 수직 -80만큼 이동
+            <br/>
+            현재 좌표에서 수평 -40만큼 이동
+        </li>
+        <li>
+            <XMP>
+                <g>
+            </XMP>
+            <p>
+                다른 svg element들을 group하는데 사용하는 태그입니다.
+                <br/>
+                g에 준 태그들은 자식 태그들에게 상속됩니다. 편리하죠!
+            </p>
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Using g to inherit presentation attributes -->
+                <g fill="white" stroke="green" stroke-width="5">
+                    <circle cx="40" cy="40" r="25"/>
+                    <circle cx="60" cy="60" r="25"/>
+                </g>
+            </svg>
+            <XMP>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Using g to inherit presentation attributes -->
+                    <g fill="white" stroke="green" stroke-width="5">
+                        <circle cx="40" cy="40" r="25" />
+                        <circle cx="60" cy="60" r="25" />
+                    </g>
+                </svg>
+            </XMP>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
