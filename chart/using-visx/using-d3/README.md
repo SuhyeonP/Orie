@@ -69,3 +69,6 @@ document에서 x,y 기준점은 현실세계의 그래프와 달리 , 브라우�
     </g>
 </svg>
 ```
+
+##데이터 스케일링 <br/>
+d3에 따르면 scale이란 Encodings that map abstract data to visual representation이다. 시각화를 위해 데이터를 추상적인 데이터 변환하는 과정이다. 
