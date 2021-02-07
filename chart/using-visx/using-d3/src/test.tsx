@@ -1,17 +1,19 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {select , line, curveBasis} from 'd3'
-import {dd} from "./robotData";
+import {select , line} from 'd3'
 
-let as=dd.result.robots.map((d) => d.anomalyScores.map(x=>x.output[0].anomaly_score))
+interface Props{
+    RobotData:number[]
+    RobotName:string
+}
 
-const Test=()=>{
-    const [data, setData] = useState(as[7].map(x=>x*100));
+const Test=({RobotData,RobotName}:Props):JSX.Element=>{
+    const [data, setData] = useState(RobotData);
     const svgRef = useRef(null);
 
     useEffect(() => {
         const svg = select(svgRef.current); // selection 객체
 
-        console.log(as)
+        console.log(RobotName,data)
 
         // line 객체를 만들자
         const myLine = line()
@@ -20,7 +22,7 @@ const Test=()=>{
 
         svg
             .selectAll("path")
-            .data([data])
+            .data([data.map(x=>x*100)])
             .join((enter) => enter.append("path"))
             .attr("d", (value) => myLine(value))
             .attr("fill", "blue")
@@ -37,6 +39,7 @@ const Test=()=>{
                 viewBox="0 0 800 800"
                 version="1.1"
             ></svg>
+            <p>{RobotName}</p>
         </>
     );
 }
