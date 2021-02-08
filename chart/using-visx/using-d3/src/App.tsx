@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Test from "./test";
 import {dd} from "./robotData";
+import Curve from "./comp/Curve";
 
 function App() {
     let as=dd.result.robots.map((d) => d.anomalyScores.map(x=>x.output[0].anomaly_score));
@@ -17,6 +18,10 @@ function App() {
                 <Test key={y} RobotData={x} RobotName={rn[y]}/>
             )
         })}
+        <br/>
+        <br/>
+        <br/>
+        <Curve height={800} width={800} />
     </div>
   );
 }
