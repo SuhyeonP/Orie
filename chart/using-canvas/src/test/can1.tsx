@@ -1,31 +1,22 @@
-import React from 'react';
-import Paper,{
-    View,
-    Layer,
-    Group,
-    Path,
-    Rectangle,
-    PointText,
-    Tool,
-    Color,
-    Point,
-} from 'paper';
+import React, {useEffect} from 'react';
+import paper,{Path,Point,Color} from 'paper';
 
 const Test1=()=>{
-    const path = new Path({
-        strokeColor: 'black'
-    });
+    useEffect(()=>{
+        const h=document.getElementById('test2') as HTMLCanvasElement;
 
-// Add a segment at {x: 30, y: 75}
-    path.add(new Point(30, 75));
-
-// Add two segments in one go at {x: 100, y: 20}
-// and {x: 170, y: 75}:
-    path.add(new Point(100, 20), new Point(170, 75));
+        paper.setup(h);
+        const path2 = new Path();
+        path2.strokeColor = new Color('green');
+        const start = new Point(300, 100);
+        path2.moveTo(start);
+        path2.lineTo(start.add(20));
+        paper.view.isVisible();
+    })
 
     return (
-        <div>
-            <canvas id="myCanvas">{path}</canvas>
+        <div id="tests">
+            <canvas id="test2" width="800" height="600"></canvas>
         </div>
     )
 }
