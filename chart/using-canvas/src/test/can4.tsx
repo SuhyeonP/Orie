@@ -28,7 +28,7 @@ const Canvas4=()=>{
                 dummy2[i][1] = centerY;
             }
         }
-        console.log(dummy2)
+        //console.log(dummy2)
         const path = new Path({
             segments: dummy2 as number[][],
             fillColor:'blue',
