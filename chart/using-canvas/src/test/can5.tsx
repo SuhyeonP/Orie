@@ -26,7 +26,6 @@ const Canvas5=()=>{
             dummy2[i][0] = Number(i) * 10;
             dummy2[i][1] = centerY - dummy[0][i - 1] * 100;
         }
-        console.log(dummy2)
         const path = new Path({
             segments: dummy2 as number[][],
             strokeColor:'grey',
