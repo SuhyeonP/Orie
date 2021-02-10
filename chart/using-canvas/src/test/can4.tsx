@@ -19,7 +19,7 @@ const Canvas4=()=>{
         path2.strokeColor = new Color('blue');
 
 // Add the second and third segments of path to path2:
-        path2.add(path.segments[3], path.segments[4]);
+        path2.add(path.segments[2], path.segments[4]);
 
 // Move path2 30pt to the right:
         path2.position.x += 20;
