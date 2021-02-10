@@ -36,13 +36,13 @@ const ChartComponent=({index}:Props)=>{
 
         const path = new Path({//그라데이션 사용
             segments: dummy2 as number[][],
-            strokeColor:'yellow',
+            strokeColor:'blue',
             strokeWidth:0.2,
             fillColor:{
                 gradient: {
-                    stops: ['yellow', 'red', 'blue']
+                    stops: ['purple', 'blue']
                 },
-                origin: new paper.Point(0,0),
+                origin: new paper.Point(0,0),//캔버스의 (0,0)지점...!!!
                 destination: new paper.Point(lastX,0)
             }
         });
