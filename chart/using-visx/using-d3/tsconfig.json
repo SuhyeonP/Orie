@@ -15,8 +15,6 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "target": "ES2017",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
