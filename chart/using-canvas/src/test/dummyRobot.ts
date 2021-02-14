@@ -32456,5 +32456,5 @@ export const dd={
     "message": ""
 }
 
-export const dummy=dd.result.robots.map(x=>x.anomalyScores.map(y=>y.output[0].anomaly_score));
+export const dummy=dd.result.robots.map(x=>x.anomalyScores.map(y=>Math.floor(y.output[0].anomaly_score*100)/100));
 export const robots=dd.result.robots;
