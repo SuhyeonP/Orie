@@ -6,12 +6,7 @@ interface Props{
 }
 
 const TestComponent=({chartData,chartId}:Props):JSX.Element=>{
-    const [chartD,setChartD]=useState(chartData)
-
-    useEffect(()=>{
-        setChartD(chartData)
-    })
-
+    const [chartD]=useState(chartData)
 
    useEffect(()=>{
        const chartDom=document.getElementById(chartId) as HTMLElement;
@@ -48,7 +43,7 @@ const TestComponent=({chartData,chartId}:Props):JSX.Element=>{
                    axisLine: {
                        show:true,
                        lineStyle:{
-                           color:'rgba(106, 119, 215,1)',
+                           color:'rgba(106, 119, 215,0.8)',
                            width:1,
                        }
                    },
@@ -56,9 +51,11 @@ const TestComponent=({chartData,chartId}:Props):JSX.Element=>{
                      show:false,
                    },
                    axisLabel:{
-                       interval:0
+                       interval:0,
+                       fontSize:11,
+                       lineHeight:17,
                    },
-                   offset:0,
+                   offset:3,
                    data:chartD.map(x=>Math.floor(x*100)/100),
                }
            ],

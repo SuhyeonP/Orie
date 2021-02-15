@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import paper, {Path, Color, Gradient, Point} from "paper";
+import paper, {Path, Color, Point} from "paper";
 import {dummy} from "./dummyRobot";
 
 interface Props{
