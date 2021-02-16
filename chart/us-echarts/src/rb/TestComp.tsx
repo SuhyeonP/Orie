@@ -16,25 +16,12 @@ const TestComponent=({chartData,chartId}:Props):JSX.Element=>{
            title:{
                text:chartId
            },
-           tooltip: {
-               trigger: 'axis',
-               axisPointer: {
-                   type: 'cross',
-                   label: {
-                       backgroundColor: 'red'//포커싱 햇을때의 값에 대한 라벨
-                   }
-               }
-           },
+
            grid:{
                left:'4%',
                right:'4%',
                bottom:'5%',
                containLabel:true,
-           },
-           toolbox:{
-               feature:{
-                   saveAsImage:{}
-               }
            },
            xAxis:[
                {
@@ -89,7 +76,7 @@ const TestComponent=({chartData,chartId}:Props):JSX.Element=>{
            ]
        }
 
-       option && myChart.setOption(option)
+       myChart.setOption(option)
    },[chartD])
 
     return (

@@ -31381,7 +31381,7 @@ export const dd={
                         "timestamp": 1612925394000,
                         "output": [
                             {
-                                "anomaly_score": 0,
+                                "anomaly_score": 1.54,
                                 "explained_result": {},
                                 "anomaly_score_raw": [
                                     0.09997741878032684,

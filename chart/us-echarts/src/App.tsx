@@ -8,7 +8,11 @@ const App=():JSX.Element=>{
   const [filterArray,setFilterArray]=useState<any[]>(dummy)// todo  타이핑은 robot arm interface 폴더내부에 타이핑 정의한거 불러 쓰면될듯
 
   const filterButton=(statusValue:number)=>{
-      setFilterArray(robots.filter(a=>a.status===statusValue).map(x=>x.anomalyScores.map(y=>y.output[0].anomaly_score)))
+      console.log(robots.filter(a=>a.status===statusValue))
+      setFilterArray(prev=>{
+          prev.push(robots.filter(a=>a.status===statusValue).map(x=>x.anomalyScores.map(y=>y.output[0].anomaly_score)))
+          return prev;
+      })// mst이용해서?
   }
 
   return (
