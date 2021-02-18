@@ -19,6 +19,7 @@ const App=():JSX.Element=>{
             console.log('print all')
         }
     })
+    //todo 처음엔 all false인데, 선택하면 true로 되니까 이후에 all true, all false는 다 보여주는거
 
   const filterButton=(statusValue:number)=>{
       filterStore.setFilterArray(statusValue)

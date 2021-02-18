@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-const tft:boolean[]=[true,true,true,true,true,true,true,true]
+const tft:boolean[]=[false,false,false,false,false,false,false,false]
 
 export class FilterStore {
     // sidebarOpen = true;
