@@ -39,7 +39,7 @@ const App=():JSX.Element=>{
 
 
   }
-
+    //todo statusArray를 변환하는건 됫고 이후에 그걸 바탕으로 true면 보여주는거? 안보여주는거? ;ㅅ;
   return (
     <div className="App">
         {filterArray.map((x,y)=>
