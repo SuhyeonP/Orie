@@ -28,6 +28,7 @@ const App=():JSX.Element=>{
       // }else{
       //     console.log("lets filtering")
       // }
+      //todo every 메서드 함수 사용하면 배열내의 값이 all true 인지 all false 인지 알수있음 배열.every(x=>x===true) 이런식
 
         console.log(filterArray2)
       // console.log(statusValue)
