@@ -14,22 +14,22 @@ const App=():JSX.Element=>{
     const { filterArray2 } = filterStore;
 
 
-    useEffect(()=>{
-        if(!filterArray2.includes(false)){
-            console.log('print all')
-        }
-    })
+    // useEffect(()=>{
+    //     if(!filterArray2.includes(false)){
+    //         console.log('print all')
+    //     }
+    // })
     //todo 처음엔 all false인데, 선택하면 true로 되니까 이후에 all true, all false는 다 보여주는거
 
   const filterButton=(statusValue:number)=>{
       filterStore.setFilterArray(statusValue)
-      if(!filterArray2.includes(false)){
-          console.log(' be all true')
-      }else{
-          console.log("lets filtering")
-      }
+      // if(!filterArray2.includes(false)){
+      //     console.log(' be all true')
+      // }else{
+      //     console.log("lets filtering")
+      // }
 
-
+        console.log(filterArray2)
       // console.log(statusValue)
       // console.log(robots.filter(a=>a.status===statusValue))
       // setFilterArray(prev=>{
