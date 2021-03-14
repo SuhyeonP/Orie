@@ -1,0 +1,53 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { ThemeProvider, LightTheme, DarkTheme } from '../Theme';
+import { Card } from './index'
+
+<Meta
+  title="Components/General/Card"
+  component={Card}
+  argTypes={{
+    cover:{
+      description:'Card 의 Img 링크',
+      table:{
+        category:'Props',
+        type:{
+          summary:'text'
+        },
+        defaultValue:{
+          summary:'./logo_circle.png'
+        }
+      },
+      control:{
+        type:'text'
+      }
+    },
+    title:{
+      description:'title'
+    }
+  }}
+/>
+
+## Card
+>test
+
+export const Template = (args)=>{
+  const { theme, ...CardArgs } = args;
+  return (
+    <ThemeProvider theme={theme === 'Light' ? LightTheme : DarkTheme}>
+      <Card {...CardArgs} />
+    </ThemeProvider>
+  )
+}
+
+<Canvas>
+  <Story name="Default" args={{
+    title:'why',
+    cover:'./logo_circle.png',
+    width:'100px',
+    height:'100px'
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default"/>
